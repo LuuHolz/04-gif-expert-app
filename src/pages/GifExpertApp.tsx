@@ -1,43 +1,37 @@
 import { useState } from "react";
-import { AddCategory } from '../components/AddCategory';
+import { AddCategory, GifGrid } from "../components";
 
 const GifExpertApp = () => {
-
-  const [categories, setCategories] = useState([]);
-  
-  const onAddCategory = ( inputValue: string ) => {
-
-    // si ya esta en la lista que no se agregue
-    if ( categories.includes( inputValue ) ) return;
+  const [ categories, setCategories ] = useState([ 'bithday' ]);
     
-    setCategories( [...categories, inputValue] )
+  const onAddCategory = ( newCategory ) => {
+      if ( categories.includes(newCategory) ) return;
+      setCategories([ newCategory, ...categories ]);
   }
 
   return (
-    <>
-        {/* TITULO */}
-        <div>GifExpertApp</div>
+<>
 
-        {/* INPUT */}
-        <AddCategory onAddCategory={ onAddCategory }/>
+<h1>GifExpertApp</h1>
 
 
-        {/* LISTADO DE GIF */}
+<AddCategory 
+    onNewCategory={ (value) => onAddCategory(value) }
+/>
 
-        <ol>
-          { categories.map( ( category ) => 
-            ( <div key={ category }>
-                      <h3>{ category }</h3>
-                    </div>
-            ))
-          }
-          
-        </ol>
-
-        {/* GIF ITEM */}
-
-    </>
-  )
+{ 
+    categories.map( ( category ) => (
+        <GifGrid 
+            key={ category } 
+            category={ category } />
+    ))
 }
 
-export  { GifExpertApp } 
+
+
+
+</>
+  );
+};
+
+export { GifExpertApp };
