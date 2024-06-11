@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 type AddCategoryProps = {
-  onNewCategory: (category: string) => AvcEncoderConfig;
+  onNewCategory: (category: string) => void;
 };
 
 const AddCategory = ({ onNewCategory }: AddCategoryProps) => {
   const [inputValue, setInputValue] = useState("");
 
-  const onInputChange = ({ target }) => {
+  const onInputChange = ({ target }: { target: HTMLInputElement }) => {
     setInputValue(target.value);
   };
 

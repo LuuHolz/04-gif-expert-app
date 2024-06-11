@@ -1,8 +1,8 @@
 import { GifItem } from "./GifItem";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 
-const GifGrid = ({ category }: { category: string }) => {
-  const { images, isLoading } = useFetchGifs(category);
+const GifGrid = ({ category }: { category: string | number }) => {
+  const { images, isLoading } = useFetchGifs(category as string);
 
   return (
     <>
