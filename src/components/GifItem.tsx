@@ -7,4 +7,5 @@ const GifItem = ({ title, url }: { title: string; url: string }) => {
   );
 };
 
+
 export { GifItem };
