@@ -28,3 +28,4 @@ const useFetchGifs = (category: string) => {
 };
 
 export { useFetchGifs };
+
