@@ -1,7 +1,9 @@
 module.exports = {
-    transform: {
-      '^.+\\.tsx?$': 'ts-jest',
-    },
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: 'tsconfig.json',
+    }],
+  },
     testEnvironment: 'jest-environment-jsdom',
     globals: {
       'ts-jest': {
